@@ -14,6 +14,7 @@ def daemonize():
     if pid > 0:
         sys.exit(0) # exit second parent
 def nampsurvey():
+    nm = nmap.PortScanner()
     for host in nm.all_hosts():
         print('----------------------------------------------------')
         print('Host : %s (%s)' % (host, nm[host].hostname()))
@@ -30,7 +31,6 @@ def connect():
     global port
     global s
     global ip    
-    nm = nmap.PortScanner()
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     port = 443
     host = '10.0.2.7'
