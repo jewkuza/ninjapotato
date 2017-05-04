@@ -27,17 +27,17 @@ def nampsurvey():
             for port in lport:
                print ('port : %s\tstate : %s' % (port, nm[host][proto][port]['state']))
 def connect():        
-    global server
+    global host
     global port
     global s
     global ip    
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     port = 443
-    server = '10.0.2.7'
+    host = '10.0.2.7'
     try:
         print '[!] Attempting Connection to Server'
         # print ip //this was a be
-        s.connect((server,port))
+        s.connect((host,port))
         print '[!] Connection Established'
         s.send('testbox')
     except:
